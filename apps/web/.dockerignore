@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.gitignore
+.env
+.env.local
+*.log
+*.err
+.DS_Store
+*.tsbuildinfo
+coverage
+.nyc_output

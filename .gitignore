@@ -1,0 +1,18 @@
+node_modules/
+# dist/ — kept for Render Static Site deployments
+# dist/
+apps/web/dist/videos/
+build/
+.turbo/
+*.tsbuildinfo
+.env
+.env.local
+project-id
+.freebuff/
+*.log
+coverage/
+.DS_Store
+Thumbs.db
+packages/gen/out/
+apps/server/public/videos/
+packages/api-client/.env
