@@ -7,8 +7,9 @@ services:
     name: carcostcanada
     env: static
     plan: free
-    buildCommand: cd apps/web && pnpm install && pnpm build
-    publishDirectory: apps/web/dist
+    rootDirectory: apps/web
+    buildCommand: pnpm install && pnpm build
+    publishDirectory: dist
     envVars:
       - key: NODE_VERSION
         value: 22
