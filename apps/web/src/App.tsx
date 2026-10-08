@@ -35,18 +35,16 @@ export function App() {
     averageSavings: 0,
   });
 
-  // Initialize users from localStorage
+  // Initialize users and load current user from localStorage on mount
   useEffect(() => {
     initializeUsers();
-  }, []);
-
-  // Load current user from localStorage on mount
-  useEffect(() => {
     const storedUserId = localStorage.getItem("carcostcanada_current_user");
     if (storedUserId) {
       const user = findUserById(storedUserId);
       if (user) {
         setCurrentUser(user);
+        // If already logged in, keep modal closed
+        setAuthModalOpen(false);
       }
     }
     setLoading(false);
@@ -159,7 +157,9 @@ export function App() {
         <button className="btn btn-primary btn-large auth-cta" onClick={() => setAuthModalOpen(true)}>
           Get Started
         </button>
-        <AuthModal onAuthSuccess={handleAuthSuccess} onClose={() => window.location.reload()} />
+        {authModalOpen && (
+          <AuthModal onAuthSuccess={handleAuthSuccess} onClose={() => setAuthModalOpen(false)} />
+        )}
       </div>
     );
   }
@@ -378,7 +378,9 @@ export function App() {
       </main>
 
       {/* Auth Modal */}
-      <AuthModal onAuthSuccess={handleAuthSuccess} onClose={() => setAuthModalOpen(false)} />
+      {authModalOpen && (
+        <AuthModal onAuthSuccess={handleAuthSuccess} onClose={() => setAuthModalOpen(false)} />
+      )}
     </div>
   );
 }
