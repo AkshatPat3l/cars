@@ -5,11 +5,9 @@
 services:
   - type: web
     name: carcostcanada
-    env: static
+    env: docker
     plan: free
-    rootDirectory: apps/web
-    buildCommand: npm install --ignore-scripts && npm run build
-    publishDirectory: dist
+    dockerfilePath: apps/web/Dockerfile
     envVars:
       - key: NODE_VERSION
         value: 22
