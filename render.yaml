@@ -1,0 +1,14 @@
+# Render Blueprint for CarCostCanada
+# Deploy with: render.yaml import in Render Dashboard
+# Or connect repo manually: https://github.com/AkshatPat3l/cars
+
+services:
+  - type: web
+    name: carcostcanada
+    env: static
+    plan: free
+    buildCommand: cd apps/web && pnpm install && pnpm build
+    publishDirectory: apps/web/dist
+    envVars:
+      - key: NODE_VERSION
+        value: 22
