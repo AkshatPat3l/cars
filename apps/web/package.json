@@ -2,6 +2,7 @@
   "name": "@streamforge/web",
   "version": "0.0.0",
   "private": true,
+  "_render-cache-bust": "2",
   "type": "module",
   "scripts": {
     "dev": "vite",
