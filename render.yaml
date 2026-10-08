@@ -8,7 +8,7 @@ services:
     env: static
     plan: free
     rootDirectory: apps/web
-    buildCommand: pnpm install && pnpm build
+    buildCommand: npm install && npm run build
     publishDirectory: dist
     envVars:
       - key: NODE_VERSION
